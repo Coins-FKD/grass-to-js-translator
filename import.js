@@ -7,3 +7,6 @@ document.write('<script type="text/javascript" src="Fkd/Utility/isInt.js"></scri
 document.write('<script type="text/javascript" src="Fkd/Utility/isUInt.js"></script>\n');
 document.write('<script type="text/javascript" src="Fkd/Utility/range.js"></script>\n');
 document.write('<script type="text/javascript" src="Fkd/GrassToJSTranslator/Translator.js"></script>\n');
+document.write('<script type="text/javascript" src="Fkd/GrassToJSTranslator/InitialState.js"></script>\n');
+document.write('<script type="text/javascript" src="Fkd/GrassToJSTranslator/Context.js"></script>\n');
+document.write('<script type="text/javascript" src="Fkd/GrassToJSTranslator/FunctionDefinitionArgumentState.js"></script>\n');
