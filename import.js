@@ -7,6 +7,11 @@ document.write('<script type="text/javascript" src="Fkd/Utility/isInt.js"></scri
 document.write('<script type="text/javascript" src="Fkd/Utility/isUInt.js"></script>\n');
 document.write('<script type="text/javascript" src="Fkd/Utility/range.js"></script>\n');
 document.write('<script type="text/javascript" src="Fkd/GrassToJSTranslator/Translator.js"></script>\n');
+document.write('<script type="text/javascript" src="Fkd/GrassToJSTranslator/FunctionBodyUpperCaseWState.js"></script>\n');
 document.write('<script type="text/javascript" src="Fkd/GrassToJSTranslator/InitialState.js"></script>\n');
 document.write('<script type="text/javascript" src="Fkd/GrassToJSTranslator/Context.js"></script>\n');
+document.write('<script type="text/javascript" src="Fkd/GrassToJSTranslator/LowerVState.js"></script>\n');
+document.write('<script type="text/javascript" src="Fkd/GrassToJSTranslator/FunctionBodyLowerCaseWState.js"></script>\n');
 document.write('<script type="text/javascript" src="Fkd/GrassToJSTranslator/FunctionDefinitionArgumentState.js"></script>\n');
+document.write('<script type="text/javascript" src="Fkd/GrassToJSTranslator/FunctionApplicationLowerCaseWState.js"></script>\n');
+document.write('<script type="text/javascript" src="Fkd/GrassToJSTranslator/FunctionApplicationUpperCaseWState.js"></script>\n');

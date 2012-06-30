@@ -6,36 +6,31 @@
         var u = Fkd.Utility;
 
 	var isPrivate = true;
-	g.FunctionDefinitionArgumentState = function() {
+	g.FunctionApplicationLowerCaseWState = function() {
 		if (!isPrivate) throw new Error(u.ErrorMessage.accessPrivate);
 	};
-	var instance = new g.FunctionDefinitionArgumentState();
-	g.FunctionDefinitionArgumentState.getInstance = function() {
+	var instance = new g.FunctionApplicationLowerCaseWState();
+	g.FunctionApplicationLowerCaseWState.getInstance = function() {
 		return instance;
 	};
-	g.FunctionDefinitionArgumentState.prototype.scan = function(context, character) {
+	g.FunctionApplicationLowerCaseWState.prototype.scan = function(context, character) {
 		if (arguments.length == 2 && context instanceof g.Context && new Object(character) instanceof String && character.length <= 1) {
 			switch (character) {
 			case "W": case "\uff37":
+			context.header += context.getFucnctionApplication(0);
 			context.upperCaseWCountInFunctionApplication = 1;
 			context.state = g.FunctionBodyUpperCaseWState.getInstance();
 			break;
 			case "w": case "\uff57":
-			context.header = context.header + context.getFunctionDefinitionArgumentHeader(0);
-			context.footer = context.getFunctionDefinitionArgumentFooter(0) + context.footer;
-			context.indentLevel += 2;
+			context.lowerCaseWCountInFunctionApplication++;
 			break;
 			case "v": case "\uff56":
-			context.header = context.header + context.getFunctionBodyFooter(0) + context.footer;
-			context.footer = "";
-			context.indentLevel = 0;
+			context.header += context.getFunctionApplication(0);
 			context.state = g.LowerVState.getInstance();
 			break;
 			case "":
-                        context.header = context.header + context.getFunctionBodyFooter(0) + context.footer;
-                        context.footer = "";
-                        context.indentLevel = 0;
-                        context.state = null;
+			context.header += context.header + context.getFunctionApplication(0);
+			context.state = null;
 			break;
 			case "\n":
 			context.line++;

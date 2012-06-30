@@ -48,9 +48,9 @@
 		return this._getStringWithIndent(functionDefinitionArgumentHeader, this.indentLevel + additionalIndentLevel);
 	};
 	g.Context.prototype.getFunctionApplication = function(additionalIndentLevel) {
-		return this._getStringWithIndent(functionApplication.replace(/%d/g, function(v, i) {
-			return [this.upperCaseWCountInFunctionApplication - 1, this.lowerCaseWCountInFunctionApplication - 1][i];
-		}), this.indentLevel + additionalIndentLevel);
+		var v = [this.upperCaseWCountInFunctionApplication - 1, this.lowerCaseWCountInFunctionApplication - 1];
+		var i = 0;
+		return this._getStringWithIndent(functionApplication.replace(/%d/g, function() {return v[i++]}), this.indentLevel + additionalIndentLevel);
 	};
 	g.Context.prototype.getFunctionBodyFooter = function(additionalIndentLevel) {
 		return this._getStringWithIndent(functionBodyFooter, this.indentLevel + additionalIndentLevel);
