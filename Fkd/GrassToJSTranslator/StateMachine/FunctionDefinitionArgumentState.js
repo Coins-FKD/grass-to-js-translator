@@ -2,23 +2,25 @@
         "use strict";
         new Function("return this")().Fkd = new Function("return this")().Fkd || {};
         Fkd.GrassToJSTranslator = Fkd.GrassToJSTranslator || {};
+	Fkd.GrassToJSTranslator.StateMachine = Fkd.GrassToJSTranslator.StateMachine || {};
         var g = Fkd.GrassToJSTranslator;
+	var s = Fkd.GrassToJSTranslator.StateMachine;
         var u = Fkd.Utility;
 
 	var isPrivate = true;
-	g.FunctionDefinitionArgumentState = function() {
+	s.FunctionDefinitionArgumentState = function() {
 		if (!isPrivate) throw new Error(u.ErrorMessage.accessPrivate);
 	};
-	var instance = new g.FunctionDefinitionArgumentState();
-	g.FunctionDefinitionArgumentState.getInstance = function() {
+	var instance = new s.FunctionDefinitionArgumentState();
+	s.FunctionDefinitionArgumentState.getInstance = function() {
 		return instance;
 	};
-	g.FunctionDefinitionArgumentState.prototype.scan = function(context, character) {
-		if (arguments.length == 2 && context instanceof g.Context && new Object(character) instanceof String && character.length <= 1) {
+	s.FunctionDefinitionArgumentState.prototype.scan = function(context, character) {
+		if (arguments.length == 2 && context instanceof s.Context && new Object(character) instanceof String && character.length <= 1) {
 			switch (character) {
 			case "W": case "\uff37":
 			context.upperCaseWCountInFunctionApplication = 1;
-			context.state = g.FunctionBodyUpperCaseWState.getInstance();
+			context.state = s.FunctionBodyUpperCaseWState.getInstance();
 			break;
 			case "w": case "\uff57":
 			context.header = context.header + context.getFunctionDefinitionArgumentHeader(0);
@@ -29,7 +31,7 @@
 			context.header = context.header + context.getFunctionBodyFooter(0) + context.footer;
 			context.footer = "";
 			context.indentLevel = 0;
-			context.state = g.LowerVState.getInstance();
+			context.state = s.LowerVState.getInstance();
 			break;
 			case "":
                         context.header = context.header + context.getFunctionBodyFooter(0) + context.footer;
