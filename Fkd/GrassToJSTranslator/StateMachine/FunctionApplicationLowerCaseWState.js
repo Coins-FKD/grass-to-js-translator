@@ -21,7 +21,7 @@
 			case "W": case "\uff37":
 			context.header += context.getFunctionApplication(0);
 			context.upperCaseWCountInFunctionApplication = 1;
-			context.state = s.FunctionBodyUpperCaseWState.getInstance();
+			context.state = s.FunctionApplicationUpperCaseWState.getInstance();
 			break;
 			case "w": case "\uff57":
 			context.lowerCaseWCountInFunctionApplication++;
