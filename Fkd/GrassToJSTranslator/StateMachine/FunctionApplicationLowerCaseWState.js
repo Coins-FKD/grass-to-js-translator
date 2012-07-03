@@ -19,7 +19,7 @@
 		if (arguments.length == 2 && context instanceof s.Context && new Object(character) instanceof String && character.length <= 1) {
 			switch (character) {
 			case "W": case "\uff37":
-			context.header += context.getFucnctionApplication(0);
+			context.header += context.getFunctionApplication(0);
 			context.upperCaseWCountInFunctionApplication = 1;
 			context.state = s.FunctionBodyUpperCaseWState.getInstance();
 			break;
