@@ -7,7 +7,76 @@
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <script type="text/javascript" src="import.js"></script>
+<script type="text/javascript" src="script.js"></script>
 </head><body>
 <h1>GrassToJSTranslator</h1>
-<p>未実装</p>
+<section>
+<h2>GrassToJSTranslatorとは？</h2>
+<p>プログラミング言語「Grass」で書かれたプログラムをプログラミング言語「JavaScript」で書かれたプログラムに変換するトランスレータです。</p>
+</section>
+<section>
+<h2>Grassとは？</h2>
+<p>UENO Katsuhiro氏が開発した難解関数型プログラミング言語です。詳細は<a href="http://www.blue.sky.or.jp/grass/doc_ja.html">Grassの公式ドキュメント</a>を参照してください。</p>
+</section>
+<section>
+<h2>トランスレータとは？</h2>
+<p>「ある言語で書かれたプログラムを別の言語で書かれたプログラムへと変換するプログラム」をコンパイラと呼びますが、その中でも特に「ある高級言語で書かれたプログラムを別の高級言語で書かれたプログラムへと変換するプログラム」をトランスレータと呼びます。</p>
+</section>
+<section>
+<h2>試してみる</h2>
+<dl>
+<dt>Grassのプログラム</dt>
+<dd><textarea id="grass" cols="100" rows="20">wwWwwvwwwwWWWwwWwwWWWWWWwwwwWwwvwwwWWwWWWWwvwwWWwWWWwvwwWWwWWWwWWWWwvw
+WWWWWWwwwWwwwwWWWWWWwwwwWwwwwwwWWWWWWWWWwwwWwwwwwwwWWWWWWWWWWWwWwwwwww
+WWWWWWWWWWWWWwWwwwwwwwwwwwwWWWWWWWWWWWWWWWwWwwwwwwwwwwwwwwWWWWWWWWWWWW
+WWWWWwWwwwwwwwwwwwwWWWWWWWWWWWWWWWWWWwwwwwwwWwwwwwwwwwwwwwwwwwwWWWWWWW
+WWWWWWWWWWWWWWwWwwwwwwwwwwwwwwWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwwwwwww
+wwwwwWwwwwwwwwwwwwwwWWWWWWWWWWWWWWWWWWWWWWWWWwWwwwwwwwwWwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWWWWWwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwWwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwWWWWWWWWWWWW
+WWWWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWwwWWWWWWWWWWWWwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwWwwWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwwWwwWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwWwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWww
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+wwwwwwwwwwwwwwwwWwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwww
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWwwWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWwwwwwwwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWwwwwwwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwwwwwwwwwwWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwwwwwwwwwwwwww
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwwwww
+wwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwww
+wWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwww
+wwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwwwwwww
+wwwwwwwwwwwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</textarea></dd>
+<dt><input type="button" value="&#8595;変換" id="grass-to-js" /></dt>
+<dt>JavaScriptのプログラム</dt>
+<dd><textarea id="js" cols="100" rows="20"></textarea></dd>
+<dt><input type="button" value="&#8595;実行" id="js-to-stdout" /></dt>
+<dt>出力結果</dt>
+<dd><textarea id="stdout" cols="100" rows="20"></textarea></dd>
+</dl>
+</section>
+<section>
+<h2>注意事項</h2>
+<ul>
+<li>このページの初期状態で表示されているGrassのサンプルプログラムはUENO Katsuhiro氏が書いた<a href="http://d.hatena.ne.jp/uenoB/20080609/1213010983">世界で最初のGrassプログラム</a>です。</li>
+<li>GrassToJSTranslatorの入出力文字コードはUTF-8固定です。Grassの公式ドキュメントのサンプルプログラムは出力文字コードがShift_JISなので一部文字化けします。</li>
+</ul>
+</section>
+<section>
+<h2>動作環境</h2>
+<p>IE9とFirefox13で動作を確認しています。確認はしていませんがこれ以外にも大抵のモダンブラウザで動作するはずです。</p>
+</section>
+<section>
+<h2>ソースコード</h2>
+<p><a href="https://github.com/Coins-FKD/grass-to-js-translator">Githubからどうぞ。</a></p>
+</section>
 </body></html>
