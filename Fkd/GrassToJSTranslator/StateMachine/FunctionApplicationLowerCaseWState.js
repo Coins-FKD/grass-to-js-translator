@@ -31,7 +31,7 @@
 			context.state = s.LowerVState.getInstance();
 			break;
 			case "":
-			context.header += context.header + context.getFunctionApplication(0);
+			context.header += context.getFunctionApplication(0);
 			context.state = null;
 			break;
 			case "\n":
