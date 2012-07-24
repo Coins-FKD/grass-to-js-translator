@@ -3,8 +3,8 @@ $(function() {
 		var g = Fkd.GrassToJSTranslator;
 		var translator = new g.Translator(new g.IndentMaker(4, 0));
 		$("#grass-to-js").click(function() {
+       				$("#js").val("");
 				try {
-					$("#js").val("");
 					$("#js").val(translator.toJS($("#grass").val()));
 				} catch (e) {
 					alert(e);
@@ -12,11 +12,11 @@ $(function() {
 			});
 		$("#js-to-stdout").click(function() {
 				var originalDocumentWrite = document.write;
+				$("#stdout").val("");
+				document.write = function(string) {
+					$("#stdout").val($("#stdout").val() + string);
+				};
 				try {
-					$("#stdout").val("");
-					document.write = function(string) {
-						$("#stdout").val($("#stdout").val() + string);
-					};
 					eval($("#js").val());
 				} catch (e) {
 					alert(e);
